@@ -8,13 +8,13 @@ import java.util.Scanner;
 public class StringQ1 {
 
     public static void main(String[] args) {
-        StringQ1 q1 = new StringQ1();
+        StringQ1 q = new StringQ1();
 
         Scanner scan = new Scanner(System.in);
         String input1 = scan.nextLine();
         char input2 = scan.nextLine().charAt(0);
 
-        int answer = q1.solution(input1, input2);
+        int answer = q.solution(input1, input2);
         System.out.println(answer);
     }
 
