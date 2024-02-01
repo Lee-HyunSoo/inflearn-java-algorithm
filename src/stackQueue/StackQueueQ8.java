@@ -35,7 +35,7 @@ public class StackQueueQ8 {
     public int solution(int n, int m, int[] arr) {
         int answer = 0;
         Queue<Pair> q = new LinkedList<>();
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < n; i++) {
             q.add(new Pair(i, arr[i]));
         }
 
@@ -50,11 +50,12 @@ public class StackQueueQ8 {
                     break;
                 }
             }
-
-            if (!flag && p.id == m) {
-                return answer;
-            } else {
-                answer++;
+            if (!flag) {
+                if (p.id == m) {
+                    return ++answer;
+                } else {
+                    answer++;
+                }
             }
         }
         return answer;
