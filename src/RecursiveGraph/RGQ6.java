@@ -7,19 +7,31 @@ import java.util.Scanner;
  */
 public class RGQ6 {
 
+    static int n;
+    static int[] arr;
 
     public static void main(String[] args) {
         RGQ6 q = new RGQ6();
 
         Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        int start = 1;
-        q.solution(start, n);
+        n = scan.nextInt();
+        arr = new int[n + 1];
+        q.solution(1);
     }
 
-    public void solution(int start, int end) {
-        for (int i = start; i <= end; i++) {
-            System.out.println(i);
+    public void solution(int l) {
+        if (l == n + 1) {
+            for (int i = 1; i <= n; i++) {
+                if (arr[i] != 0) {
+                    System.out.print(i + " ");
+                }
+            }
+            System.out.println();
+        } else {
+            arr[l] = 1;
+            solution(l + 1);
+            arr[l] = 0;
+            solution(l + 1);
         }
     }
 }

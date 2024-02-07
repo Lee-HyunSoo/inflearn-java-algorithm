@@ -4,17 +4,17 @@ package RecursiveGraph;
 /**
  * 이진트리 순회
  */
-class Node {
-    int data;
-    Node lt, rt;
-
-    public Node(int val) {
-        data = val;
-        lt = rt = null;
-    }
-}
-
 public class RGQ5 {
+
+    static class Node {
+        int data;
+        Node lt, rt;
+
+        public Node(int val) {
+            data = val;
+            lt = rt = null;
+        }
+    }
 
     public static void main(String[] args) {
         RGQ5 q = new RGQ5();
