@@ -31,7 +31,7 @@ public class GreedyQ5 {
         Scanner scan = new Scanner(System.in);
         n = scan.nextInt();
         m = scan.nextInt();
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i <= n; i++) {
             graph.add(new ArrayList<>());
         }
 

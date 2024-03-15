@@ -1,5 +1,8 @@
 package greedy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -7,8 +10,24 @@ import java.util.Scanner;
  */
 public class GreedyQ7 {
 
+    static class Edge implements Comparable<Edge> {
+        int v1, v2, cost;
+
+        Edge(int v1, int v2, int cost) {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.cost = cost;
+        }
+
+        @Override
+        public int compareTo(Edge e) {
+            return this.cost - e.cost;
+        }
+    }
+
     static int n, m;
     static int[] unf;
+    static List<Edge> edges = new ArrayList<>();
 
     public static void main(String[] args) {
         GreedyQ7 q = new GreedyQ7();
@@ -23,15 +42,21 @@ public class GreedyQ7 {
         for (int i = 0; i < m; i++) {
             int x = scan.nextInt();
             int y = scan.nextInt();
-            union(x, y);
+            int z = scan.nextInt();
+            edges.add(new Edge(x, y, z));
         }
 
-        int a = scan.nextInt();
-        int b = scan.nextInt();
-        int fa = find(a);
-        int fb = find(b);
+        int answer = 0;
+        Collections.sort(edges);
+        for (Edge e : edges) {
+            int fv1 = find(e.v1);
+            int fv2 = find(e.v2);
 
-        String answer = fa == fb ? "YES" : "NO";
+            if (fv1 != fv2) {
+                answer += e.cost;
+                union(e.v1, e.v2);
+            }
+        }
         System.out.println(answer);
     }
 
